@@ -3,6 +3,9 @@
   "displayName": "Bauhaus Theme",
   "version": "1.0.0",
   "description": "Bauhaus primary colors on warm black and paper. Dark and light themes, every syntax color WCAG AA.",
+  "categories": [
+    "Themes"
+  ],
   "keywords": [
     "theme",
     "color-theme",
@@ -34,19 +37,11 @@
   "license": "MIT",
   "author": "Damien Seguin (https://github.com/dmnsgn)",
   "publisher": "dmnsgn",
-  "icon": "icon.png",
-  "galleryBanner": {
-    "color": "#2b2119",
-    "theme": "dark"
-  },
-  "categories": [
-    "Themes"
-  ],
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
-    "reference": "node scripts/reference.js",
     "icon": "node scripts/icon.js",
+    "reference": "node scripts/reference.js",
     "screenshot": "node scripts/screenshot.js"
   },
   "contributes": {
@@ -63,15 +58,20 @@
       }
     ]
   },
-  "engines": {
-    "node": ">=22.0.0",
-    "npm": ">=10.5.1",
-    "vscode": "^1.90.0",
-    "snowdev": ">=3.0.0-alpha.3"
-  },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "pex-color": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1",
+    "snowdev": ">=3.0.0-alpha.3",
+    "vscode": "^1.90.0"
+  },
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#2b2119",
+    "theme": "dark"
   },
   "snowdev": {
     "serve": false
