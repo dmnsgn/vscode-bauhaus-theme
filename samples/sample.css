@@ -1,0 +1,15 @@
+:root {
+  --red: #95171d;
+}
+
+.editor > #main:hover::before,
+a[href^="https"] {
+  color: var(--red);
+  margin: 0 auto 1.5rem;
+  font-family: "Futura", sans-serif !important;
+  transition: opacity 200ms ease-in-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: rgb(34 34 34 / 90%); }
+}

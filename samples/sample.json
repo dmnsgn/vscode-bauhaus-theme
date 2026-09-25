@@ -1,0 +1,11 @@
+{
+  "name": "bauhaus",
+  "version": 1,
+  "enabled": true,
+  "hues": {
+    "primary": {
+      "red": { "hex": "#95171d", "alpha": null }
+    }
+  },
+  "list": [1, 2.5, "three"]
+}

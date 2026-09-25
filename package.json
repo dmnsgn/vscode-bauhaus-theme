@@ -1,0 +1,79 @@
+{
+  "name": "vscode-bauhaus-theme",
+  "displayName": "Bauhaus Theme",
+  "version": "1.0.0",
+  "description": "Bauhaus primary colors on warm black and paper. Dark and light themes, every syntax color WCAG AA.",
+  "keywords": [
+    "theme",
+    "color-theme",
+    "bauhaus",
+    "dark",
+    "light",
+    "warm",
+    "minimal",
+    "accessibility",
+    "contrast",
+    "wcag"
+  ],
+  "homepage": "https://github.com/dmnsgn/vscode-bauhaus-theme",
+  "bugs": "https://github.com/dmnsgn/vscode-bauhaus-theme/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnsgn/vscode-bauhaus-theme.git"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
+  "publisher": "dmnsgn",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#2b2119",
+    "theme": "dark"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "reference": "node scripts/reference.js",
+    "icon": "node scripts/icon.js",
+    "screenshot": "node scripts/screenshot.js"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Bauhaus Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bauhaus-dark.json"
+      },
+      {
+        "label": "Bauhaus Light",
+        "uiTheme": "vs",
+        "path": "./themes/bauhaus-light.json"
+      }
+    ]
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1",
+    "vscode": "^1.90.0",
+    "snowdev": ">=3.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "pex-color": "^2.3.0"
+  },
+  "snowdev": {
+    "serve": false
+  }
+}

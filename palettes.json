@@ -1,0 +1,272 @@
+[
+  {
+    "id": "dark",
+    "type": "dark",
+    "bg": {
+      "editor": "#3b3128",
+      "chrome": "#2b2119",
+      "line": "#574d43"
+    },
+    "fg": {
+      "default": "#f2f2f2",
+      "muted": "#9a9a9a"
+    },
+    "ink": {
+      "red": "#ff6963",
+      "orange": "#ef7a04",
+      "yellow": "#c59208",
+      "green": "#8aa441",
+      "cyan": "#15acaa",
+      "blue": "#769ae2",
+      "violet": "#d873e1"
+    },
+    "bright": {
+      "red": "#ffaba3",
+      "orange": "#feaf7b",
+      "yellow": "#f6b606",
+      "green": "#afcc69",
+      "cyan": "#52d3d1",
+      "blue": "#a2c1fe",
+      "violet": "#f8a2ff"
+    },
+    "fill": {
+      "red": "#95171d",
+      "blue": "#30436a",
+      "green": "#495821",
+      "yellow": "#cb9820"
+    },
+    "onFill": {
+      "red": "#f2f2f2",
+      "blue": "#f2f2f2",
+      "green": "#f2f2f2",
+      "yellow": "#2b2119"
+    },
+    "syntax": [
+      {
+        "role": "text",
+        "color": "#f2f2f2",
+        "ratio": 11.33,
+        "grade": "AAA"
+      },
+      {
+        "role": "comment",
+        "color": "#9a9a9a",
+        "ratio": 4.51,
+        "grade": "AA"
+      },
+      {
+        "role": "keyword",
+        "color": "#ff6963",
+        "ratio": 4.5,
+        "grade": "AA"
+      },
+      {
+        "role": "operator",
+        "color": "#15acaa",
+        "ratio": 4.54,
+        "grade": "AA"
+      },
+      {
+        "role": "function",
+        "color": "#769ae2",
+        "ratio": 4.52,
+        "grade": "AA"
+      },
+      {
+        "role": "type",
+        "color": "#c59208",
+        "ratio": 4.52,
+        "grade": "AA"
+      },
+      {
+        "role": "string",
+        "color": "#8aa441",
+        "ratio": 4.51,
+        "grade": "AA"
+      },
+      {
+        "role": "constant",
+        "color": "#ef7a04",
+        "ratio": 4.5,
+        "grade": "AA"
+      },
+      {
+        "role": "variable",
+        "color": "#d873e1",
+        "ratio": 4.5,
+        "grade": "AA"
+      },
+      {
+        "role": "invalid",
+        "color": "#ff6963",
+        "ratio": 4.5,
+        "grade": "AA"
+      }
+    ],
+    "fills": [
+      {
+        "hue": "red",
+        "color": "#95171d",
+        "text": "#f2f2f2",
+        "ratio": 7.76,
+        "grade": "AAA"
+      },
+      {
+        "hue": "blue",
+        "color": "#30436a",
+        "text": "#f2f2f2",
+        "ratio": 8.78,
+        "grade": "AAA"
+      },
+      {
+        "hue": "green",
+        "color": "#495821",
+        "text": "#f2f2f2",
+        "ratio": 6.94,
+        "grade": "AA"
+      },
+      {
+        "hue": "yellow",
+        "color": "#cb9820",
+        "text": "#2b2119",
+        "ratio": 6.03,
+        "grade": "AA"
+      }
+    ]
+  },
+  {
+    "id": "light",
+    "type": "light",
+    "bg": {
+      "editor": "#f5ebe3",
+      "chrome": "#e5dbd3",
+      "line": "#c9bfb8"
+    },
+    "fg": {
+      "default": "#2b2119",
+      "muted": "#616161"
+    },
+    "ink": {
+      "red": "#c5031e",
+      "orange": "#9a4c00",
+      "yellow": "#7e5c05",
+      "green": "#546903",
+      "cyan": "#036d6c",
+      "blue": "#4060a3",
+      "violet": "#9935a3"
+    },
+    "bright": {
+      "red": "#8f0113",
+      "orange": "#703500",
+      "yellow": "#5a4100",
+      "green": "#3b4b01",
+      "cyan": "#034d4c",
+      "blue": "#254283",
+      "violet": "#790d83"
+    },
+    "fill": {
+      "red": "#95171d",
+      "blue": "#30436a",
+      "green": "#495821",
+      "yellow": "#cb9820"
+    },
+    "onFill": {
+      "red": "#f2f2f2",
+      "blue": "#f2f2f2",
+      "green": "#f2f2f2",
+      "yellow": "#2b2119"
+    },
+    "syntax": [
+      {
+        "role": "text",
+        "color": "#2b2119",
+        "ratio": 13.4,
+        "grade": "AAA"
+      },
+      {
+        "role": "comment",
+        "color": "#616161",
+        "ratio": 5.27,
+        "grade": "AA"
+      },
+      {
+        "role": "keyword",
+        "color": "#c5031e",
+        "ratio": 5.25,
+        "grade": "AA"
+      },
+      {
+        "role": "operator",
+        "color": "#036d6c",
+        "ratio": 5.25,
+        "grade": "AA"
+      },
+      {
+        "role": "function",
+        "color": "#4060a3",
+        "ratio": 5.23,
+        "grade": "AA"
+      },
+      {
+        "role": "type",
+        "color": "#7e5c05",
+        "ratio": 5.23,
+        "grade": "AA"
+      },
+      {
+        "role": "string",
+        "color": "#546903",
+        "ratio": 5.26,
+        "grade": "AA"
+      },
+      {
+        "role": "constant",
+        "color": "#9a4c00",
+        "ratio": 5.25,
+        "grade": "AA"
+      },
+      {
+        "role": "variable",
+        "color": "#9935a3",
+        "ratio": 5.27,
+        "grade": "AA"
+      },
+      {
+        "role": "invalid",
+        "color": "#c5031e",
+        "ratio": 5.25,
+        "grade": "AA"
+      }
+    ],
+    "fills": [
+      {
+        "hue": "red",
+        "color": "#95171d",
+        "text": "#f2f2f2",
+        "ratio": 7.76,
+        "grade": "AAA"
+      },
+      {
+        "hue": "blue",
+        "color": "#30436a",
+        "text": "#f2f2f2",
+        "ratio": 8.78,
+        "grade": "AAA"
+      },
+      {
+        "hue": "green",
+        "color": "#495821",
+        "text": "#f2f2f2",
+        "ratio": 6.94,
+        "grade": "AA"
+      },
+      {
+        "hue": "yellow",
+        "color": "#cb9820",
+        "text": "#2b2119",
+        "ratio": 6.03,
+        "grade": "AA"
+      }
+    ]
+  }
+]

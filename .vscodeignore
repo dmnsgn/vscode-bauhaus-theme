@@ -1,0 +1,11 @@
+.vscode
+reference
+samples
+scripts
+src
+colors.json
+palettes.json
+.editorconfig
+.npmignore
+icon.svg
+screenshot.*
