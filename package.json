@@ -1,7 +1,7 @@
 {
   "name": "vscode-bauhaus-theme",
   "displayName": "Bauhaus Theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bauhaus primary colors on warm black and paper. Dark and light themes, every syntax color WCAG AA.",
   "categories": [
     "Themes"
