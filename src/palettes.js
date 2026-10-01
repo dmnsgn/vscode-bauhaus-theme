@@ -34,7 +34,7 @@ const mapValues = (object, fn) =>
 // keeps the tint.
 // Light surfaces have no source match: a paper tint at the same hue.
 // Lines (borders, guides, selected rows) keep the grey-40 on grey-22 step: 1.53:1.
-const [, , WARM_HUE] = toOklch(black);
+const WARM_HUE = toOklch(black)[2];
 const darkEditor = fit(black, black, 1.23);
 const lightEditor = fromOklch([0.945, 0.015, WARM_HUE]);
 
@@ -67,6 +67,7 @@ const INK = { exact: true, chroma: 1.6 };
  * @property {Backgrounds} bg
  * @property {Foregrounds} fg
  * @property {Hues} ink Hues for text and marks on backgrounds.
+ * @property {Hues} ansi Terminal hues.
  * @property {Hues} bright Terminal bright variants.
  * @property {Fills} fill Hues as solid surfaces.
  * @property {Fills} onFill Text on each fill.
@@ -118,6 +119,7 @@ function source(type) {
     bg: { editor, chrome, line },
     fg: { default: text, muted },
     ink: HUES,
+    ansi: HUES,
     bright: mapValues(HUES, (hue) => mix(hue, text, 0.3)),
     fill: FILLS,
     onFill: mapValues(FILLS, (fill) => mostContrasted(fill, [white, black])),
@@ -127,7 +129,8 @@ function source(type) {
 /**
  * Source hues, saturated, at the lightness closest to the backgrounds that
  * reaches WCAG 2.0 AA against editor and chrome. Equal contrast keeps hues
- * apart from the text color on both sides.
+ * apart from the text color on both sides. Terminal hues reach AA (bright: AAA)
+ * against the terminal background only.
  *
  * @param {"dark" | "light"} type
  * @returns {Palette}
@@ -139,7 +142,8 @@ function wcag(type) {
     ...base,
     fg: { ...base.fg, muted: fit(base.fg.muted, backgrounds, AA) },
     ink: mapValues(HUES, (hue) => fit(hue, backgrounds, AA, INK)),
-    bright: mapValues(HUES, (hue) => fit(hue, backgrounds, AAA, INK)),
+    ansi: mapValues(HUES, (hue) => fit(hue, base.bg.chrome, AA, INK)),
+    bright: mapValues(HUES, (hue) => fit(hue, base.bg.chrome, AAA, INK)),
   };
 }
 

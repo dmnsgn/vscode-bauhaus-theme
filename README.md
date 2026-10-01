@@ -141,9 +141,16 @@ To switch, add the matching snippet to your `settings.json`.
 
 </details>
 
+## Terminal themes
+
+The same colors for the macOS Terminal and iTerm2, generated from the VS Code themes.
+
+- **Terminal**: download [Bauhaus Dark](terminal/macos/Bauhaus%20Dark.terminal) or [Bauhaus Light](terminal/macos/Bauhaus%20Light.terminal), then in `Settings… > Profiles`, click <kbd>…</kbd> > `Import…`.
+- **iTerm2**: download [Bauhaus Dark](terminal/iterm2/Bauhaus%20Dark.itermcolors) or [Bauhaus Light](terminal/iterm2/Bauhaus%20Light.itermcolors), then in `Settings > Profiles > Colors`, pick `Color Presets… > Import…`.
+
 ## Palettes
 
-Contrast is WCAG 2.0 against the editor background.
+Contrast is WCAG 2.0 against the editor background. Terminal hues reach AA (bright: AAA) against the terminal background.
 
 <details>
 <summary>Colors and contrast ratios</summary>
@@ -160,15 +167,15 @@ Contrast is WCAG 2.0 against the editor background.
 | fg.default | `#f2f2f2` |
 | fg.muted   | `#9a9a9a` |
 
-| Hue    | Ink       | Bright (terminal) |
-| ------ | --------- | ----------------- |
-| red    | `#ff6963` | `#ffaba3`         |
-| orange | `#ef7a04` | `#feaf7b`         |
-| yellow | `#c59208` | `#f6b606`         |
-| green  | `#8aa441` | `#afcc69`         |
-| cyan   | `#15acaa` | `#52d3d1`         |
-| blue   | `#769ae2` | `#a2c1fe`         |
-| violet | `#d873e1` | `#f8a2ff`         |
+| Hue    | Ink       | Terminal  | Terminal bright |
+| ------ | --------- | --------- | --------------- |
+| red    | `#ff6963` | `#ff3e42` | `#ff8d84`       |
+| orange | `#ef7a04` | `#d66c03` | `#ff9240`       |
+| yellow | `#c59208` | `#b18201` | `#dea301`       |
+| green  | `#8aa441` | `#79932d` | `#9cb855`       |
+| cyan   | `#15acaa` | `#099997` | `#38bfbc`       |
+| blue   | `#769ae2` | `#6689cf` | `#88adf6`       |
+| violet | `#d873e1` | `#c661cf` | `#ed86f6`       |
 
 | Syntax role | Color     | Contrast on editor | WCAG 2.0 |
 | ----------- | --------- | ------------------ | -------- |
@@ -200,15 +207,15 @@ Contrast is WCAG 2.0 against the editor background.
 | fg.default | `#2b2119` |
 | fg.muted   | `#616161` |
 
-| Hue    | Ink       | Bright (terminal) |
-| ------ | --------- | ----------------- |
-| red    | `#c5031e` | `#8f0113`         |
-| orange | `#9a4c00` | `#703500`         |
-| yellow | `#7e5c05` | `#5a4100`         |
-| green  | `#546903` | `#3b4b01`         |
-| cyan   | `#036d6c` | `#034d4c`         |
-| blue   | `#4060a3` | `#254283`         |
-| violet | `#9935a3` | `#790d83`         |
+| Hue    | Ink       | Terminal  | Terminal bright |
+| ------ | --------- | --------- | --------------- |
+| red    | `#c5031e` | `#c5031f` | `#8f0113`       |
+| orange | `#9a4c00` | `#9a4c00` | `#703500`       |
+| yellow | `#7e5c05` | `#7e5c05` | `#5a4100`       |
+| green  | `#546903` | `#546903` | `#3b4b01`       |
+| cyan   | `#036d6c` | `#036d6c` | `#034d4d`       |
+| blue   | `#4060a3` | `#4060a3` | `#254283`       |
+| violet | `#9935a3` | `#9935a2` | `#790d83`       |
 
 | Syntax role | Color     | Contrast on editor | WCAG 2.0 |
 | ----------- | --------- | ------------------ | -------- |

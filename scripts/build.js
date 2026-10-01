@@ -1,5 +1,6 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 
+import { valueFormatTableAsMarkdown } from "value-format-table";
 import reference from "../reference/theme-colors.json" with { type: "json" };
 import { accents } from "../src/accents.js";
 import { contrast } from "../src/color.js";
@@ -92,29 +93,56 @@ const report = palettes.map((palette) => {
 });
 await writeJson("palettes.json", report);
 
+const table = (rows) => valueFormatTableAsMarkdown(rows).trim();
+const code = (color) => `\`${color}\``;
+
 const markdown = report
   .map(
-    ({ type, bg, fg, ink, bright, syntax, fills }) => `### ${capitalize(type)}
+    ({
+      type,
+      bg,
+      fg,
+      ink,
+      ansi,
+      bright,
+      syntax,
+      fills,
+    }) => `### ${capitalize(type)}
 
-| Surface | Color |
-| --- | --- |
-${Object.entries({ ...bg, "fg.default": fg.default, "fg.muted": fg.muted })
-  .map(([key, color]) => `| ${key} | \`${color}\` |`)
-  .join("\n")}
+${table(
+  Object.entries({
+    ...bg,
+    "fg.default": fg.default,
+    "fg.muted": fg.muted,
+  }).map(([surface, color]) => ({ Surface: surface, Color: code(color) })),
+)}
 
-| Hue | Ink | Bright (terminal) |
-| --- | --- | --- |
-${Object.keys(ink)
-  .map((hue) => `| ${hue} | \`${ink[hue]}\` | \`${bright[hue]}\` |`)
-  .join("\n")}
+${table(
+  Object.keys(ink).map((hue) => ({
+    Hue: hue,
+    Ink: code(ink[hue]),
+    Terminal: code(ansi[hue]),
+    "Terminal bright": code(bright[hue]),
+  })),
+)}
 
-| Syntax role | Color | Contrast on editor | WCAG 2.0 |
-| --- | --- | --- | --- |
-${syntax.map(({ role, color, ratio, grade }) => `| ${role} | \`${color}\` | ${ratio}:1 | ${grade} |`).join("\n")}
+${table(
+  syntax.map(({ role, color, ratio, grade }) => ({
+    "Syntax role": role,
+    Color: code(color),
+    "Contrast on editor": `${ratio}:1`,
+    "WCAG 2.0": grade,
+  })),
+)}
 
-| Fill | Text | Contrast | WCAG 2.0 |
-| --- | --- | --- | --- |
-${fills.map(({ hue, color, text, ratio, grade }) => `| ${hue} \`${color}\` | \`${text}\` | ${ratio}:1 | ${grade} |`).join("\n")}
+${table(
+  fills.map(({ hue, color, text, ratio, grade }) => ({
+    Fill: `${hue} ${code(color)}`,
+    Text: code(text),
+    Contrast: `${ratio}:1`,
+    "WCAG 2.0": grade,
+  })),
+)}
 `,
   )
   .join("\n");

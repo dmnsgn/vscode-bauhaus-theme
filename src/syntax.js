@@ -6,6 +6,7 @@
  * tags, constants) → violet, other hues keep their role.
  *
  * @param {Palette} p
+ * @returns {Record<string, string>}
  */
 export const roles = (p) => ({
   text: p.fg.default,
@@ -43,6 +44,7 @@ const jsonKeys = (colors) =>
  * TextMate rules. Later rules win on equal specificity.
  *
  * @param {Palette} p
+ * @returns {object[]}
  */
 export function tokenColors(p) {
   const r = roles(p);
@@ -251,6 +253,7 @@ export function tokenColors(p) {
  * mapping.
  *
  * @param {Palette} p
+ * @returns {Record<string, string | object>}
  */
 export function semanticTokenColors(p) {
   const r = roles(p);

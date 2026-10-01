@@ -9,8 +9,7 @@ import {
   toOklch as colorToOklch,
 } from "pex-color";
 
-const parse = (hex) => fromHex(create(), hex);
-const format = (color) => toHex(color).toLowerCase();
+const toLowerCaseHex = (color) => toHex(color).toLowerCase();
 const lerp = (a, b, t) => a + (b - a) * t;
 
 /**
@@ -21,7 +20,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
  */
 export function luminance(hex) {
   // WCAG 2.0's 0.03928 linearization threshold and sRGB's 0.04045 give the same result on 8-bit channels.
-  const [r, g, b] = toLinear(parse(hex));
+  const [r, g, b] = toLinear(fromHex([], hex));
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
@@ -38,18 +37,24 @@ export function contrast(a, b) {
 }
 
 /**
+ * Convert to sRGB channels.
+ *
+ * @param {string} hex
+ * @returns {[number, number, number]} Red, green, blue from 0 to 1.
+ */
+export const toRgb = (hex) => fromHex([], hex);
+
+/**
  * Convert to OKLCH.
  *
  * @param {string} hex
  * @returns {[number, number, number]} Lightness, chroma, hue in turns.
  */
-export const toOklch = (hex) => colorToOklch(parse(hex)).slice(0, 3);
+export const toOklch = (hex) => colorToOklch(fromHex([], hex));
 
 // Tolerance applies to linear values: gamma encoding would make it ~13x stricter near 0.
 const inGamut = (color) =>
-  toLinear(color)
-    .slice(0, 3)
-    .every((v) => v >= -1e-4 && v <= 1 + 1e-4);
+  toLinear(color).every((v) => v >= -1e-4 && v <= 1 + 1e-4);
 
 /**
  * Convert from OKLCH, reducing chroma until the color fits in sRGB.
@@ -58,9 +63,9 @@ const inGamut = (color) =>
  * @returns {string}
  */
 export function fromOklch([L, C, H]) {
-  const color = create();
+  const color = [];
   while (!inGamut(colorFromOklch(color, L, C, H))) C = Math.max(0, C - 0.002);
-  return format(color);
+  return toLowerCaseHex(color);
 }
 
 /**
@@ -72,10 +77,10 @@ export function fromOklch([L, C, H]) {
  * @returns {string}
  */
 export function mix(a, b, t = 0.5) {
-  const [La, Aa, Ba] = toOklab(parse(a));
-  const [Lb, Ab, Bb] = toOklab(parse(b));
-  return format(
-    fromOklab(create(), lerp(La, Lb, t), lerp(Aa, Ab, t), lerp(Ba, Bb, t)),
+  const [La, Aa, Ba] = toOklab(fromHex([], a));
+  const [Lb, Ab, Bb] = toOklab(fromHex([], b));
+  return toLowerCaseHex(
+    fromOklab([], lerp(La, Lb, t), lerp(Aa, Ab, t), lerp(Ba, Bb, t)),
   );
 }
 
@@ -156,7 +161,21 @@ export const mostContrasted = (bg, candidates) =>
  * @returns {string} #RRGGBBAA, or #RRGGBB when opaque.
  */
 export function alpha(hex, opacity) {
-  const color = parse(hex);
+  const color = fromHex([], hex);
   color[3] = opacity;
-  return format(color);
+  return toLowerCaseHex(color);
+}
+
+/**
+ * Composite a translucent color over an opaque background, in sRGB as browsers
+ * do.
+ *
+ * @param {string} hex #RRGGBBAA or #RRGGBB.
+ * @param {string} bg
+ * @returns {string} #RRGGBB.
+ */
+export function flatten(hex, bg) {
+  const [r, g, b, a] = fromHex(create(), hex);
+  const [R, G, B] = fromHex([], bg);
+  return toLowerCaseHex([lerp(R, r, a), lerp(G, g, a), lerp(B, b, a), 1]);
 }

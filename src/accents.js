@@ -42,7 +42,7 @@ const active = (p, activity, panel = activity) => ({
  * @property {function(Palette): Accent} accent
  */
 
-/** @type {Object<string, AccentStyle>} */
+/** @type {Record<string, AccentStyle>} */
 export const accents = {
   blocks: {
     name: "Blocks",

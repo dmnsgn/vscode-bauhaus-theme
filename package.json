@@ -39,10 +39,11 @@
   "publisher": "dmnsgn",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && node scripts/terminal.js",
     "icon": "node scripts/icon.js",
     "reference": "node scripts/reference.js",
-    "screenshot": "node scripts/screenshot.js"
+    "screenshot": "node scripts/screenshot.js",
+    "terminal": "node scripts/terminal.js"
   },
   "contributes": {
     "themes": [
@@ -60,10 +61,11 @@
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
-    "pex-color": "^2.3.0"
+    "pex-color": "^2.3.0",
+    "value-format-table": "^1.0.0"
   },
   "engines": {
-    "node": ">=22.0.0",
+    "node": ">=24.0.0",
     "npm": ">=10.5.1",
     "snowdev": ">=3.0.0-alpha.3",
     "vscode": "^1.90.0"

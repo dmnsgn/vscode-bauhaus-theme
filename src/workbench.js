@@ -13,7 +13,7 @@ import { roles } from "./syntax.js";
  * @returns {Record<string, string>}
  */
 export function workbench(p, a) {
-  const { bg, fg, ink, fill } = p;
+  const { bg, fg, ink, ansi, fill } = p;
   const dark = p.type === "dark";
   const r = roles(p);
 
@@ -450,7 +450,7 @@ export function workbench(p, a) {
     "keybindingLabel.bottomBorder": bg.line,
     "keybindingTable.rowsBackground": shade(0.03),
 
-    // Terminal
+    // Terminal: palette ansi and bright hues are fitted against bg.chrome
     "terminal.background": bg.chrome,
     "terminal.foreground": fg.default,
     "terminal.border": bg.line,
@@ -463,12 +463,12 @@ export function workbench(p, a) {
     "terminalCommandDecoration.successBackground": status.success,
     "terminalCommandDecoration.errorBackground": status.error,
     "terminal.ansiBlack": dark ? bg.line : fg.default,
-    "terminal.ansiRed": ink.red,
-    "terminal.ansiGreen": ink.green,
-    "terminal.ansiYellow": ink.yellow,
-    "terminal.ansiBlue": ink.blue,
-    "terminal.ansiMagenta": ink.violet,
-    "terminal.ansiCyan": ink.cyan,
+    "terminal.ansiRed": ansi.red,
+    "terminal.ansiGreen": ansi.green,
+    "terminal.ansiYellow": ansi.yellow,
+    "terminal.ansiBlue": ansi.blue,
+    "terminal.ansiMagenta": ansi.violet,
+    "terminal.ansiCyan": ansi.cyan,
     "terminal.ansiWhite": dark ? fg.muted : bg.line,
     "terminal.ansiBrightBlack": fg.muted,
     "terminal.ansiBrightRed": p.bright.red,
